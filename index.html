@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hi Amishi</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -13,92 +17,170 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      padding: 20px;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       padding: 2rem;
       border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
       text-align: center;
       max-width: 420px;
+      width: 100%;
     }
 
     h1 {
       margin-bottom: 0.5rem;
       color: #ff5c8a;
+      font-size: 1.8rem;
     }
 
     p {
       color: #444;
-      line-height: 1.6;
+      line-height: 1.7;
+      font-size: 0.98rem;
+      text-align: left;
+      white-space: pre-line;
     }
 
     .btn {
       display: inline-block;
       margin-top: 1rem;
-      padding: 0.8rem 1.2rem;
+      padding: 0.8rem 1.3rem;
       border-radius: 999px;
       background: #ff8fb1;
       color: white;
       text-decoration: none;
       font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s ease;
+      box-shadow: 0 6px 16px rgba(255, 143, 177, 0.35);
     }
 
-  /* Make images responsive */
-.cute-img {
-  width: 100%;
-  max-width: 180px;
-  height: auto;
-  border-radius: 16px;
-  margin: 8px;
-  transition: transform 0.3s ease;
-}
-
-.cute-img:hover {
-  transform: scale(1.05);
-}
-
-/* Modal (popup) background */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-/* Images inside modal */
-.modal img {
-  width: 90%;
-  max-width: 400px;
-  border-radius: 16px;
-  margin: 10px;
-}
-
-/* Close button */
-.close-btn {
-  position: absolute;
-  top: 20px;
-  right: 25px;
-  font-size: 30px;
-  color: white;
-  cursor: pointer;
-}
-
     .btn:hover {
-      opacity: 0.9;
+      opacity: 0.92;
+      transform: translateY(-1px);
     }
 
     .emoji {
       font-size: 2rem;
       margin-bottom: 0.5rem;
+    }
+
+    /* Modal background */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    /* Center modal content */
+    .modal-content {
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Gallery box */
+    .gallery-box {
+      position: relative;
+      background: #fff;
+      border-radius: 24px;
+      padding: 20px 20px 14px;
+      max-width: 900px;
+      width: 100%;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+      animation: popIn 0.25s ease;
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0.96);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .gallery-title {
+      margin: 0 0 14px;
+      color: #ff5c8a;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: #ffe4ec;
+      border: none;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      font-size: 22px;
+      cursor: pointer;
+      color: #ff5c8a;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .close-btn:hover {
+      background: #ffd4e2;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 1.4rem;
+        border-radius: 18px;
+      }
+
+      h1 {
+        font-size: 1.45rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid img {
+        height: auto;
+        max-height: 70vh;
+        object-fit: cover;
+      }
     }
   </style>
 </head>
@@ -108,44 +190,63 @@
     <h1>A letter to my prettiest girl</h1>
     <p>
       <br>
-    Hi Didi,
-    <br>
+Hi Didi,
+<br>
 We met for the first time in 2013, but we weren’t really friends and we started talking on insta in 2019, became friends, went on a trip together (kaafi bekaar thi). Love story to ye humari honi chahiye! Par I will settle for yours and Prakhar’s 😂
 
-2019 se we were there for each other in all ups and downs. Our friendship has mostly been long distance but we managed to stay friends. Chaahe ghar pe Harshit ke baare me batana ho ya fir shaadi related problems ho, you were always there for me, just a call/text away. With others I never felt seen or heard but you made me feel seen and I am so thankful to you for raising my standards in making friends. Actually, I have never trusted anyone more than you, ever, because you always uphold that trust. Life isn’t easy, hasn’t been easy for past couple of years but I always had you by my side. “ So darling, darling stay by me — no I won’t be afraid, just as long, as you stand, stand by me”
+2019 se we were there for each other in all ups and downs. Our friendship has mostly been long distance but we managed to stay friends. Chaahe ghar pe Harshit ke baare me batana ho ya fir shaadi related problems ho, you were always there for me, just a call/text away. With others I never felt seen or heard but you made me feel seen and I am so thankful to you for raising my standards in making friends. Actually, I have never trusted anyone more than you, ever, because you always uphold that trust. Life isn’t easy, hasn’t been easy for past couple of years but I always had you by my side. “So darling, darling stay by me — no I won’t be afraid, just as long, as you stand, stand by me”
 
 You are theeee sweetest person I know. Stay like this forever Amishi because this world without your smile will be lifeless.
-Wishing you all the happiness in this world as you step into this new role. May everything good you did for others come back to you cuz you are a gem of a person. 
+Wishing you all the happiness in this world as you step into this new role. May everything good you did for others come back to you cuz you are a gem of a person.
 
-💕<br>
-  Love,<br>
-  Aarushi
+💕
+Love,
+Aarushi
     </p>
-    <button class="btn" onclick="openImages()">CUTU PIX</button>
-  <div id="imageModal" class="modal">
-  <span class="close-btn" onclick="closeImages()">&times;</span>
-  
-  <img src="images/img1.jpg">
-  <img src="images/img2.jpg">
-</div>
+
+    <button class="btn" onclick="openGallery()">CUTU PIX</button>
   </div>
+
+  <!-- Modal -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <div class="gallery-box">
+        <button class="close-btn" onclick="closeGallery()">&times;</button>
+        <h2 class="gallery-title">Cutu Pix 💕</h2>
+        <div class="gallery-grid">
+          <img src="images/img1.jpg" alt="Cute memory 1">
+          <img src="images/img2.jpg" alt="Cute memory 2">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("imageModal");
+
+    function openGallery() {
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeGallery() {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+
+    // Close when clicking outside the white gallery box
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal || e.target.classList.contains("modal-content")) {
+        closeGallery();
+      }
+    });
+
+    // Close with Escape key
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeGallery();
+      }
+    });
+  </script>
 </body>
 </html>
-
-<script>
-  function openImages() {
-    document.getElementById("imageModal").style.display = "flex";
-  }
-
-  function closeImages() {
-    document.getElementById("imageModal").style.display = "none";
-  }
-
-  // Optional: close when clicking outside images
-  window.onclick = function(event) {
-    const modal = document.getElementById("imageModal");
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  }
-</script>
