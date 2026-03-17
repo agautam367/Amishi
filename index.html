@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hi Amishi</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffe4ec, #e0f7ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 2rem;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      text-align: center;
+      max-width: 420px;
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+      color: #ff5c8a;
+    }
+
+    p {
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      background: #ff8fb1;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .cute-img {
+  border-radius: 16px;
+  margin: 8px;
+  transition: transform 0.3s ease;
+}
+
+.cute-img:hover {
+  transform: scale(1.1);
+}
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .emoji {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="emoji">🌸💻✨</div>
+    <h1>A letter to my prettiest girl</h1>
+    <p>
+    Hi Didi,
+      
+We met for the first time in 2013, but we weren’t really friends and we started talking on insta in 2019, became friends, went on a trip together (kaafi bekaar thi). Love story to ye humari honi chahiye! Par I will settle for yours and Prakhar’s 😂
+
+2019 se we were there for each other in all ups and downs. Our friendship has mostly been long distance but we managed to stay friends. Chaahe ghar pe Harshit ke baare me batana ho ya fir shaadi related problems ho, you were always there for me, just a call/text away. With others I never felt seen or heard but you made me feel seen and I am so thankful to you for raising my standards in making friends. Actually, I have never trusted anyone more than you, ever, because you always uphold that trust. Life isn’t easy, hasn’t been easy for past couple of years but I always had you by my side. “ So darling, darling stay by me — no I won’t be afraid, just as long, as you stand, stand by me”
+
+You are theeee sweetest person I know. Stay like this forever Amishi because this world without your smile will be lifeless.
+Wishing you all the happiness in this world as you step into this new role. May everything good you did for others come back to you cuz you are a gem of a person. 
+
+Love,
+Aarushi
+    </p>
+    <button class="btn" onclick="toggleImages()">Say Hi</button>
+    <div id="imageContainer" style="display: none; margin-top: 1rem;">
+  <img src="images/pic1.jpg" class="cute-img">
+ <img src="images/pic2.jpg" class="cute-img">
+</div>
+  </div>
+</body>
+</html>
+
+<script>
+  function toggleImages() {
+    const container = document.getElementById("imageContainer");
+    if (container.style.display === "none") {
+      container.style.display = "block";
+    } else {
+      container.style.display = "none";
+    }
+  }
+</script>
